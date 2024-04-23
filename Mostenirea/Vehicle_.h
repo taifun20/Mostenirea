@@ -8,18 +8,24 @@ class Vehicle_
 
 		Vehicle_()
 		{
-			std::cout << "	Class Vehicle_ Created" << std::endl;
+			std::cout << "	DEBUG: Class Vehicle_ Created" << std::endl << std::endl;
 		}
 		~Vehicle_()
 		{
-			std::cout << "	Class Vehicle_ Destroyed" << std::endl;
+			std::cout << "	DEBUG: Class Vehicle_ Destroyed" << std::endl << std::endl;
 		}
 
 		std::string Brand;
-		void StartEng()
-		{
-			std::cout << "	Engine started" << std::endl;
-		}
+		std::string Model;
+		void StartEng();
+		void SetTotalWheels(int LV_TotalWheels);
+		void SetGears(int LV_Gears);
+		void GetTotalWheels();
+		void GetGears();
+
+	private:
+		int TotalWheels{0};
+		int Gears{0};
 };
 
 // class Derivata : tip_mostenire class_de_baza
@@ -29,15 +35,17 @@ class Car_ : public Vehicle_
 
 		Car_()
 		{
-			std::cout << "	BP Car_ Created" << std::endl;
+			std::cout << "	DEBUG: BP Car_ Created" << std::endl << std::endl;
 		}
 		~Car_()
 		{
-			std::cout << "	BP Car_ Destroyed" << std::endl;
+			std::cout << "	DEBUG: BP Car_ Destroyed" << std::endl << std::endl;
 		}
 
-		void Honk_()
-		{
-			std::cout << "	Beep Beep!" << std::endl;
-		}
+		void Honk_();
+
+	// protected : nu se poate apela din main doar din clasa care mosteneste
+	// Ramane public doar pentru clasa care mosteneste aceasta clasa
+	protected:
+	private:
 };
